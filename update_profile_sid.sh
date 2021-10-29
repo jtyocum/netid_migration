@@ -1,5 +1,7 @@
 #!/bin/bash
 
+RUNPATH=${PWD}
+
 for user in $(cat netid_sids.txt); do
 	USERNAME=$(echo ${user} | cut -d":" -f1)
 	NEWSID=$(echo ${user} | cut -d":" -f2)
@@ -10,4 +12,5 @@ for user in $(cat netid_sids.txt); do
 		mv NTUSER.DAT.new NTUSER.DAT
 		chown ${USERNAME} NTUSER.DAT
 	fi
+	cd ${RUNPATH}
 done
